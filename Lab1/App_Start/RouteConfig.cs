@@ -15,7 +15,7 @@ namespace Lab1
 
             routes.MapRoute(
                 name: "SecretPage",
-                url: "secret/{controller}/{action}/{id}",
+                url: "secret",
                 defaults: new { controller = "Home", action = "Hemlig", id = UrlParameter.Optional }
             );
 
