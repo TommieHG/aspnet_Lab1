@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Lab1.Models;
 
 namespace Lab1.Controllers
 {
@@ -17,7 +18,6 @@ namespace Lab1.Controllers
         public ActionResult Index(FormCollection name_Collect)
         {
             Session["Username"] = name_Collect["nameText"].ToString();
-            ViewBag.welcomeMessage = "Hello there " + name_Collect["nameText"].ToString() + "!";
             return View();
         }
 
@@ -34,13 +34,6 @@ namespace Lab1.Controllers
             {
                 ViewBag.Username = "This page is about stuff";
             }
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }

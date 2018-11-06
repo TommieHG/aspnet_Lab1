@@ -10,14 +10,20 @@
 <div class="row">
     <div class="col-md-6">
         <h2>What's your name?</h2>
-        <p>Wouldn't it be nice and personal if we could address you by name?</p>
-        @using (Html.BeginForm())
-        {
-            @Html.TextBox("nameText");
 
-            <input id="name_Button" type="submit" value="Submit name" />
-            <br><br>
-            <p>@ViewBag.welcomeMessage</p>
+        @if (Session["Username"] == null)
+        {
+            <p>Wouldn't it be nice and personal if we could address you by name?</p>
+            using (Html.BeginForm())
+            {
+                @Html.TextBox("nameText");
+
+                <input id="name_Button" type="submit" value="Submit name" />
+            }
+        }
+        else
+        {
+            <p>@Html.Partial("_PartialName")</p>
         }
     </div>
 
