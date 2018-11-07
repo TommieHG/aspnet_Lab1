@@ -17,6 +17,7 @@ namespace Lab1.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection name_Collect)
         {
+
             Session["Username"] = name_Collect["nameText"].ToString();
             return View();
         }
@@ -24,8 +25,6 @@ namespace Lab1.Controllers
         [HttpGet]
         public ActionResult About()
         {
-            ViewBag.Message = "What's this all about?";
-
             if(Session["Username"] != null)
             {
                 ViewBag.Username = "This page is not about you " + Session["Username"] + "!";
@@ -40,9 +39,32 @@ namespace Lab1.Controllers
 
         public ActionResult Hemlig()
         {
-            ViewBag.Message = "You found it!";
+            ViewData["secretGreet"] = "You found it!";
 
             return View();
+        }
+
+        public ActionResult Calculator()
+        {
+            Calculator calc = new Calculator();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Calculator(Calculator calc)
+        {
+            calc.VoltageResult = calc.Resistance * calc.Current;
+            calc.ResistanceResult = calc.Voltage / calc.Current;
+            calc.CurrentResult = calc.Voltage / calc.Resistance;
+            Session["CalcSess"] = calc;
+
+            return RedirectToAction("_ShowResult");
+        }
+
+        public ActionResult _ShowResult()
+        {
+            Calculator calc2 = (Calculator)Session["CalcSess"];
+            return View(calc2);
         }
     }
 }

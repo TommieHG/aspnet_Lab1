@@ -4,6 +4,10 @@
 }
 
 <h2>Secret page</h2>
+@if (Session["Username"] != null)
+{
+    @Html.Partial("_PartialName")
+}
 
-<p>You found it! Good on you!</p>
+<p>You found the page! Good on you!</p>
 

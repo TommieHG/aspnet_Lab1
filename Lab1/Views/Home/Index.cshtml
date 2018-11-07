@@ -14,22 +14,36 @@
         @if (Session["Username"] == null)
         {
             <p>Wouldn't it be nice and personal if we could address you by name?</p>
+
             using (Html.BeginForm())
             {
                 @Html.TextBox("nameText");
 
-                <input id="name_Button" type="submit" value="Submit name" />
+                <button type="submit" class="btn btn-primary btn-sm">Submit name</button>
             }
+        }
+        else if (Session["Username"].ToString() == "")
+        {
+            <p>Wouldn't it be nice and personal if we could address you by name?</p>
+
+            using (Html.BeginForm())
+            {
+                @Html.TextBox("nameText");
+
+                <button type="submit" class="btn btn-primary btn-sm">Submit name</button>
+            }
+            <p>Sorry, your name may not be blank.</p>
         }
         else
         {
-            <p>@Html.Partial("_PartialName")</p>
+            @Html.Partial("_PartialName")
         }
     </div>
 
     <div class="col-md-6">
         <h2>Calculator</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p>Click the button!</p>
+
+        <input type="button" class="btn btn-primary btn-sm" value="Let's Go!" onclick="location.href='@Url.Action("Calculator", "Home",null)'" />
     </div>
 </div>

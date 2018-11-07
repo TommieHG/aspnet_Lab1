@@ -1,0 +1,36 @@
+﻿@model Lab1.Models.Calculator
+
+<div>
+    <h4>Calculator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Voltage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voltage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resistance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resistance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Current)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Current)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
