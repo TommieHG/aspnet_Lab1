@@ -52,8 +52,14 @@
         </div>
 
         <div class="col-md-6">
+            <h4>Your last results</h4>
+            @if (Session["voltage"] != null)
+            {
+                <p>Voltage: @Session["voltage"].ToString()</p>
+                <p>Resistance: @Session["resistance"].ToString()</p>
+                <p>Current: @Session["current"].ToString()</p>
+            }
 
-            @Html.Partial("_ShowResult")
 
         </div>
 

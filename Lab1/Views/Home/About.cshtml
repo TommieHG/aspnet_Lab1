@@ -1,6 +1,65 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title</h2>
+
+<font color="@ViewBag.ferg"><h2>@ViewBag.Title</h2></font>
 
 <p>@ViewBag.Username</p>
+
+<p>Wanna change the title color?</p>
+
+@using (Html.BeginForm())
+{
+            <div>
+                <label>
+                    @Html.RadioButton("color", "black")
+                    black
+                </label>
+            </div>
+            <div>
+                <label>
+                    @Html.RadioButton("color", "blue")
+                    blue
+                </label>
+            </div>
+            <div>
+                <label>
+                    @Html.RadioButton("color", "green")
+                    green
+                </label>
+            </div>
+            <div>
+                <label>
+                    @Html.RadioButton("color", "orange")
+                    orange
+                </label>
+            </div>
+            <div>
+                <label>
+                    @Html.RadioButton("color", "pink")
+                    pink
+                </label>
+            </div>
+            <div>
+                <label>
+                    @Html.RadioButton("color", "purple")
+                    purple
+                </label>
+            </div>
+            <div>
+                <label>
+                    @Html.RadioButton("color", "red")
+                    red
+                </label>
+                <div>
+                    <label>
+                        @Html.RadioButton("color", "yellow")
+                        yellow  
+                    </label>
+                </div>
+            </div>
+
+
+    <button type="submit" class="btn btn-primary btn-sm">Choose</button>
+}
+

@@ -1,13 +1,27 @@
 ﻿
 @{
-    ViewBag.Title = "Hemlig";
+                /**/
+
+                ViewBag.Title = "Hemlig";
 }
 
 <h2>Secret page</h2>
 @if (Session["Username"] != null)
 {
     @Html.Partial("_PartialName")
+    @ViewData["secretGreet"]
+    <p>Would you like to reset your name?</p>
+    using (Html.BeginForm())
+    {
+        <input id="Checkbox1" name="boxcheck" type="checkbox" value ="1"/>
+        <button type="submit" class="btn btn-primary btn-sm">Reset please</button>
+    }
+}
+else
+{
+    @ViewData["secretGreet"]
 }
 
-<p>You found the page! Good on you!</p>
+
+
 
