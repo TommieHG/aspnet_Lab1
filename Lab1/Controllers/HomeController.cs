@@ -17,7 +17,6 @@ namespace Lab1.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection name_Collect)
         {
-
             Session["Username"] = name_Collect["nameText"].ToString();
             return View();
         }
@@ -42,10 +41,7 @@ namespace Lab1.Controllers
         [HttpPost]
         public ActionResult About(FormCollection title_Color)
         {
-
             Session["color"] = title_Color["color"].ToString();
-
-            
 
             return RedirectToAction("About");
         }
@@ -70,41 +66,24 @@ namespace Lab1.Controllers
 
         public ActionResult Calculator()
         {
-            //Calculator calc = new Calculator();
-            return View();
+            //object declared only for values 0 to be put i form fields
+            Calculator cal = new Calculator();
+            cal.Current = 0;
+            cal.Voltage = 0;
+            cal.Resistance = 0;
+
+            return View(cal);
         }
 
-        //[HttpPost]
-        //public ActionResult Calculator(Calculator calc)
-        //{
-        //    calc.VoltageResult = calc.Resistance * calc.Current;
-        //    calc.ResistanceResult = calc.Voltage / calc.Current;
-        //    calc.CurrentResult = calc.Voltage / calc.Resistance;
-        //    Session["CalcSess"] = calc;
-            
-
-        //    return RedirectToAction("_ShowResult");
-        //}
-
         [HttpPost]
-        public ActionResult Calculator(FormCollection calc_Collection)
+        public ActionResult Calculator(Calculator cal)
         {
-            Calculator cal = new Calculator();
-
-            cal.Current = Convert.ToDouble(calc_Collection["Current"]);
-            cal.Resistance = Convert.ToDouble(calc_Collection["Resistance"]);
-            cal.Voltage = Convert.ToDouble(calc_Collection["Voltage"]);
 
             cal.VoltageResult = cal.Current * cal.Resistance;
             cal.ResistanceResult = cal.Voltage / cal.Current;
             cal.CurrentResult = cal.Voltage / cal.Resistance;
 
-            Session["voltage"] = cal.VoltageResult;
-            Session["resistance"] = cal.ResistanceResult;
-            Session["current"] = cal.CurrentResult;
-
-            return RedirectToAction("Calculator");
+            return View(cal);
         }
-
     }
 }

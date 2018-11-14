@@ -9,15 +9,16 @@ namespace Lab1.Models
     
     public class Calculator
     {
-        [Range(0, double.MaxValue, ErrorMessage = "Only numbers allowed!")]
+        
+        [Range(0, double.MaxValue, ErrorMessage = "Please keep 'em positive")]
         [Display(Name = "Voltage")]
         public double Voltage { get; set; }
 
-        [Range(0, double.MaxValue, ErrorMessage = "Only numbers allowed!")]
+        [Range(0, double.MaxValue, ErrorMessage = "Please keep 'em positive")]
         [Display(Name = "Resistance")]
         public double Resistance { get; set; }
 
-        [Range(0, double.MaxValue, ErrorMessage = "Only numbers allowed!")]
+        [Range(0, double.MaxValue, ErrorMessage = "Please keep 'em positive")]
         [Display(Name = "Current")]
         public double Current { get; set; }
 

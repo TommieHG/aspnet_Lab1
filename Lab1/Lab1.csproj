@@ -168,6 +168,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram4.cd" />
+    <Content Include="ClassDiagram5.cd" />
+    <Content Include="ClassDiagram6.cd" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -196,8 +199,6 @@
     <Content Include="Views\Home\Hemlig.cshtml" />
     <Content Include="Views\Shared\_PartialName.cshtml" />
     <Content Include="Views\Home\Calculator.cshtml" />
-    <Content Include="Views\Home\_ShowResult.cshtml" />
-    <Content Include="Views\Home\Calculator2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
